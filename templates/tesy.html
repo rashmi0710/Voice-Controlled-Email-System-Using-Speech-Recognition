@@ -1,0 +1,54 @@
+<form action="login.html" method="POST">{% csrf_token %}
+    <div class="mb-3 login" id = "here">
+        $(document).ready(function(){
+            setInterval(function(){
+                $("#here").load(window.location.href + " #here" );
+            }, 1000);
+        });
+            </script>
+      <label for="exampleInputEmail1" class="form-label" style="color: black;">Email address</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email" required value={{detail.email}} >
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label" style="color: black;">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" type="password" placeholder="Password" name="password" required value={{detail.password}}>
+    </div>
+    <a href="options.html"> 
+      <input href="options.html"class="btn btn-primary" role="button" type="submit" value="LOGIN">
+    </a>
+         </form>
+
+<form action="homepage/login.html" method="POST">
+    <br><br><br><br>
+    <div class="container" >
+      
+      
+      <div class="login" id = "here">
+        <script> 
+          $(document).ready(function(){
+          setInterval(function(){
+              $("#here").load(window.location.href + " #here" );
+          }, 1000);
+          });
+          </script>
+        
+        {% csrf_token %}
+          <h3 style="color: black;text-align: left;margin-left: 10%;">Email:</h3>
+    
+        <input type="text" placeholder="Email" name="email"required value={{detail.email}} >
+    
+          <br><br>
+          <h3 style="color: black;text-align: left;margin-left: 10%;">Password: </h3>
+         <input type="password" placeholder="Password" name="password"required value={{detail.password}} >
+    
+           <a href="options.html"> 
+          <input href="options.html"class="btn btn-primary btn-xl rounded-pill mt-5" role="button" type="submit" value="LOGIN"style="background-color: black;"></a>
+          <br>
+          
+          
+        </div>
+      </div>							   
+    </div>
+  </div>
+</form>

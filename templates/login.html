@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/png" href="static/images/voi.png" />
+    <title>VOICE BASED EMAIL FOR THE BLIND</title>
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+    <!-- symbol  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/386098c742.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://kit.fontawesome.com/386098c742.css"
+      crossorigin="anonymous"
+    />
+    <!-- goggle font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  </head>
+  <body onmousedown = "SendPostRequestHome(event)">
+    <section id="title">
+      <div class="container-fluid3">
+        <nav
+          class="navbar navbar-expand-lg navbar-dark"
+          style="padding: 0 0 4.5rem"
+          ;
+        >
+          <a class="navbar-brand" style="font-size: 2rem; color: black"
+            >Talkify</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#login" style="color: black"
+                >Login</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: black">About us</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Title -->
+        <div class="row" style="background-color: white">
+          <div class="col-lg-6">
+            <h1 class="head">
+              Your voice is the key to unlocking the power of technology.
+            </h1>
+          </div>
+
+          <div class="col-lg-6">
+            <img
+              class="dog-img"
+              src="static/images/smart.jpg"
+              alt="iphone-mockup"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="login">
+      
+              <div class="row" style="width: 1087px; background-color: white; margin-left: 216px; margin-top: -171px;">
+                <div style="text-align: center;">
+                  <h1 class="head1">
+                    Login
+                  </h1>
+                </div>
+                <div class="col-lg-12 loginbox" style="margin-left:250px; width:50%">
+                  
+                  <form>
+                    <div class="container" >
+                      <div class="login" id = "here">
+                        <script> 
+                          $(document).ready(function(){
+                            setInterval(function(){
+                              $("#here").load(window.location.href + " #here" );
+                            }, 1000);
+                          });
+                        </script>
+                        
+                        {% csrf_token %}
+                        <label for="exampleInputEmail1" class="form-label" style="color: black;">Email address</label>
+                        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" type="text" placeholder="Email" name="email"required value={{detail.email}} >
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div>
+                          <label for="exampleInputPassword1" class="form-label" style="color: black;">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1"  placeholder="Password" name="password"required value={{detail.password}}  >
+                          
+                        </div>
+                        
+                        
+                        <a href="options.html"> 
+                        <input href="options.html"class="btn btn-primary btn-xl rounded-pill mt-5" role="button" type="submit" value="LOGIN"style="background-color: black;"></a>
+                        <br>
+                          
+                          
+                      </div>
+                    </div>							   
+                  </form>
+                </div>
+             </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="footer" >
+      <i class="fa-brands fa-twitter hj"></i>
+
+      <i class="fa-brands fa-facebook-f hj"></i>
+
+      <i class="fa-brands fa-instagram hj"></i>
+
+      <i class="fa-solid fa-envelope hj"></i>
+
+      <p class="footer-head">© Copyright VBES</p>
+    </footer>
+
+    <script>
+      function SendPostRequestHome(event){
+        $.ajax({
+          path: "login.html",
+          method: 'POST',
+          data: { 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+          success: function (data) {
+            
+            if(data.result == 'success'){
+              
+              window.location = "options.html";
+            }
+            else if(data.result == 'failure'){
+              window.location = "login.html";
+            }
+          }
+        });
+      }
+    </script>
+    
+
+  </body>
+</html>
