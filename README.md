@@ -44,7 +44,7 @@ So, we proposed a Voice-based Email System using AI that will make the email sys
     </p>
    </li>
    <li> <b> Forntend images: </b>
-    <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white" alt="django" /> 
+    <img src="https://raw.githubusercontent.com/rashmi0710/Voice-Controlled-Email-System-Using-Speech-Recognition/master/menu.jpg" alt="login_page" /> 
    </li>
 
  </ul><br/>
