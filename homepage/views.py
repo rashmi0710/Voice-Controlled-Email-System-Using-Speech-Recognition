@@ -1,6 +1,5 @@
 
-from django.shortcuts import render, redirect
-from . import forms
+from django.shortcuts import render
 from .models import Details
 from .models import Compose
 import imaplib,email
@@ -16,11 +15,10 @@ from email import encoders
 from django.http import JsonResponse
 import re
 
-
 file = "good"
 i="0"
-passwrd = " "
-addr = " "
+passwrd = ""
+addr = ""
 item =""
 subject = ""
 body = ""
@@ -28,7 +26,7 @@ s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
 imap_url = 'imap.gmail.com'
 conn = imaplib.IMAP4_SSL(imap_url)
-attachment_dir = 'D:/voice/voive_based/mysite/'
+attachment_dir = 'C:/Users/Chacko/Desktop/'
 
 def texttospeech(text, filename):
     filename = filename + '.mp3'
@@ -86,12 +84,6 @@ def convert_special_char(text):
                     temp = temp.replace('space', '')
                 elif character == 'dash':
                     temp=temp.replace('dash','-')
-                elif character == 'one':
-                    temp=temp.replace('one','1')
-                elif character == 'two':
-                    temp=temp.replace('two','2')
-                elif character == 'three':
-                    temp=temp.replace('three','3')
     return temp
 
 
@@ -130,7 +122,7 @@ def login_view(request):
         while (flag):
             texttospeech("Enter your password", file + i)
             i = i + str(1)
-            passwrd = speechtotext(20)
+            passwrd = speechtotext(10)
             
             if addr != 'N':
                 texttospeech("You meant " + passwrd + " say yes to confirm or no to enter again", file + i)
@@ -148,6 +140,8 @@ def login_view(request):
         print(passwrd)
 
         imap_url = 'imap.gmail.com'
+        #passwrd = ''
+        #addr = ''
         conn = imaplib.IMAP4_SSL(imap_url)
         try:
             conn.login(addr, passwrd)
@@ -155,8 +149,6 @@ def login_view(request):
             texttospeech("Congratulations. You have logged in successfully. You will now be redirected to the menu page.", file + i)
             i = i + str(1)
             return JsonResponse({'result' : 'success'})
-            
-        
         except:
             texttospeech("Invalid Login Details. Please try again.", file + i)
             i = i + str(1)
@@ -167,15 +159,6 @@ def login_view(request):
     detail.email = addr
     detail.password = passwrd
     return render(request, 'login.html', {'detail' : detail}) 
-
-
-    
-
-
-
-
-
-
 
 def options_view(request):
     global i, addr, passwrd
@@ -370,7 +353,7 @@ def get_attachment(msg):
                 f.write(part.get_payload(decode=True))
                 texttospeech("Attachment has been downloaded", file + i)
                 i = i + str(1)
-                path = 'D:/voice/voive_based/mysite/'
+                path = 'C:/Users/Chacko/Desktop/'
                 files = os.listdir(path)
                 paths = [os.path.join(path, basename) for basename in files]
                 file_name = max(paths, key=os.path.getctime)
