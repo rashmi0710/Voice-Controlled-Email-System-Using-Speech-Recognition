@@ -47,8 +47,7 @@ So, we proposed a Voice-based Email System using AI that will make the email sys
      <br>
     <img src="https://raw.githubusercontent.com/rashmi0710/Voice-Controlled-Email-System-Using-Speech-Recognition/master/menu.jpg" alt="login_page" />
      <br>
-     
-    <img src="https://raw.githubusercontent.com/rashmi0710/Voice-Controlled-Email-System-Using-Speech-Recognition/master/login.jpg" alt="login_page" />
+    <img src="https://raw.githubusercontent.com/rashmi0710/Voice-Controlled-Email-System-Using-Speech-Recognition/master/login.jpg" alt="lo_page" />
    </li>
 
  </ul><br/>
